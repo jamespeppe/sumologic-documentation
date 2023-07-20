@@ -235,7 +235,7 @@ The following table shows the comparison of these components.
 
 Following configuration demonstrates:
 
-1. **Collect**: Collect syslog sent using UDP protocol to 127.0.0.1 on port 514
+1. **Collect**: Collect syslog sent using UDP protocol to 127.0.0.1 on port 1514
 2. **Transform**: Set `_sourceCategory` field to `syslog_event_log_prod`
 3. **Export**: Send data to authenticated Sumo Logic organization
 
@@ -243,7 +243,8 @@ Following configuration demonstrates:
 receivers:
   syslog/local_syslog:
     udp:
-      listen_address: "127.0.0.1:514"
+      listen_address: "127.0.0.1:1514"
+    protocol: rfc5424
 
 processors:
   resource/local_syslog:
